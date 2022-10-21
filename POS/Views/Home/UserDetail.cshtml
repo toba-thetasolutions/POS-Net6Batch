@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    var oUser = ViewBag.AdminDetail;
+    var oClient = ViewBag.ClientDetail;
+}
+<h1>User Detail View</h1>
+<h5>User Id: @oUser.Id</h5>
+<h5>User First Name: @oUser.FirstName</h5>
+<h5>User Last Name: @oUser.LastName</h5>
+<h5>User Email: @oUser.Email</h5>
+<h5>User Email: @oUser.Password</h5>
+@if (oUser.Gender == 1){
+    <h5>Gender: Female</h5>
+}
+else if (oUser.Gender == 2)
+{
+    <h5>Gender: Male</h5>
+}
+else{
+    <h5>Gender: Other</h5>
+}
+<br />
+<hr />
+<h1>Client Detail</h1>
+<h5>Client Id: @oClient.Id</h5>
+<h5>Client First Name: @oClient.FirstName</h5>
+<h5>Client Last Name: @oClient.LastName</h5>
+<h5>Client Email: @oClient.Email</h5>
+<h5>Client Email: @oClient.Password</h5>
+@if (oClient.Gender == 1)
+{
+    <h5>Gender: Female</h5>
+}
+else if (oClient.Gender == 2)
+{
+    <h5>Gender: Male</h5>
+}
+else
+{
+    <h5>Gender: Other</h5>
+}

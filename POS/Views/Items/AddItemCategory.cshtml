@@ -1,0 +1,83 @@
+﻿@model POS.Models.ItemCategories
+
+@{
+    ViewData["Title"] = "AddItemCategory";
+}
+
+<h1>AddItemCategory</h1>
+
+<h4>ItemCategories</h4>
+<hr />
+ @if (ViewBag.SMessage !=null)
+    {
+<div class="alert alert-success text-center">@ViewBag.SMessage</div>
+    }
+@if (ViewBag.EMessage != null)
+{
+    <div class="alert alert-warning text-center">@ViewBag.EMessage</div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddItemCategory" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CatName" class="control-label"></label>
+                <input asp-for="CatName" type="text" class="form-control" />
+                <span asp-validation-for="CatName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CatCode" class="control-label"></label>
+                <input asp-for="CatCode" class="form-control" />
+                <span asp-validation-for="CatCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <input asp-for="Serial" class="form-control" />
+                <span asp-validation-for="Serial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+          @*  <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedDate" class="control-label"></label>
+                <input asp-for="ModifiedDate" class="form-control" />
+                <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifyBy" class="control-label"></label>
+                <input asp-for="ModifyBy" class="form-control" />
+                <span asp-validation-for="ModifyBy" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDel" /> @Html.DisplayNameFor(model => model.IsDel)
+                </label>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <button type="reset" class="btn btn-primary">Reset</button>
+           
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

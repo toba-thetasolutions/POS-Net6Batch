@@ -1,0 +1,14 @@
+﻿@{
+    var header = "All Vendors";
+    if (ViewBag.Id == 0)
+    {
+        header = "Welcome Admin";
+
+    }
+    else
+    {
+        header = "Welcome CEO"; 
+    }
+}
+<h1>@header</h1>
+<p>@TempData["UserInfo"]</p>

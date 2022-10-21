@@ -1,0 +1,14 @@
+﻿    #dash-div {
+        background-color: #e74564;
+        color: white;
+        padding: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+        border-color: black; 
+        border: black 2px solid;
+        border-radius: 30px;
+    }
+    .main-div{
+        color:red;
+    }

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Bootstrap Pracctive</h1>
+<div class="row">
+    <div class="alert alert-success col-lg-6 col-md-3"> Alert Success</div>
+    <div class="alert alert-primary col-lg-6 col-md-3"> Alert primary</div>
+</div>
+@if (ViewBag.Error != null && ViewBag.Error != "")
+{
+    <div class="col-md-12 alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<div class="alert alert-danger col-md-6"> Alert danger</div>
+<div class="alert alert-light col-md-6"> Alert light</div>
+<div class="alert alert-warning col-md-6"> Alert warning</div>
+<div class="row"> Bootstrap Buttons</div>
+<button class="btn btn-success btn-md">Click Me (Medium)</button>
+<button class="btn btn-danger btn-lg">Click Me (Large)</button>
+<button class="btn btn-info btn-sm">Click Me (Small)</button>

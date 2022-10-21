@@ -1,0 +1,24 @@
+﻿@model POS.Models.Items
+<div class="alert alert-success">
+    <h1>Item Detail</h1>
+</div>
+<table class="table table-bordered table-info">
+    <thead>
+        <tr>
+            <th class="bg-light">Item Name</th>
+            <td>@Model.ItemName</td>
+        </tr>
+        <tr>
+            <th class="bg-light">Item Code</th>
+            <td>@Model.ItemCode</td>
+        </tr>
+        <tr>
+            <th class="bg-light">Item Price</th>
+            <td>@Model.Price</td>
+        </tr>
+        <tr>
+            <th class="bg-light">Item Qty</th>
+            <td>@Model.Qunatity</td>
+        </tr>
+    </thead>
+</table>

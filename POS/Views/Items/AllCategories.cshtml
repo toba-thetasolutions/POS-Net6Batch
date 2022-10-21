@@ -1,0 +1,88 @@
+﻿@model IEnumerable<POS.Models.ItemCategories>
+
+@{
+    ViewData["Title"] = "AllCategories";
+}
+
+<h1>AllCategories</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Serial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+         @*   <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifyBy)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.IsDel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serial)
+            </td>
+            <td>
+               @if(item.Status == 1){
+                        <label class="label  bg-info">Active</label>
+               }
+               else{
+                        <span class="label bg-danger">In-Active</span>
+               }
+            </td>
+            <td>
+               @(item.CreatedDate.ToString("dd-MMM-yyyy hh:mm:ss tt"))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+         @*   <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyBy)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDel)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-info btn-sm" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="CategoryDetail" class="btn btn-primary btn-sm" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-danger btn-sm" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

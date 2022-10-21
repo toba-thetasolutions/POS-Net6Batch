@@ -1,0 +1,33 @@
+﻿@model POS.Models.ItemCategories
+
+@{
+    ViewData["Title"] = "CategoryDetail";
+}
+
+<h1>CategoryDetail</h1>
+<div>
+    @* <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
+    <a class="btn btn-success btn-sm" asp-action="AllCategories">Back to List</a>
+</div>
+<div class="col-sm-6">
+    <div class="card">
+        <h5 class="card-header bg-info">@Model.CatName Detail</h5>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+               <strong>Category Name: </strong> @Model.CatName
+                </p>
+            <p class="card-text">
+                <strong>Category Code: </strong> @Model.CatCode
+            </p>
+            <p class="card-text">
+                <strong>Category Serial: </strong> @Model.Serial
+            </p>
+                <p class="card-text">
+               <strong>Category Created Date: </strong> @Model.CreatedDate.ToShortDateString()
+                </p>
+            <a href="#" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+    </div>
+

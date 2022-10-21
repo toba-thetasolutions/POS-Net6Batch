@@ -72,5 +72,17 @@ namespace POS.Controllers
         
             return View();
         }
+        public IActionResult AllCategories()
+        {
+            IList<ItemCategories> oListCat = null;
+            oListCat = db.ItemCategories.OrderBy(m=>m.CatName).ToList();
+            return View(oListCat);
+        }
+        public IActionResult CategoryDetail(int id)
+
+        { 
+            ItemCategories objCat = db.ItemCategories.Find(id); 
+            return View(objCat);
+        }
     }
 }

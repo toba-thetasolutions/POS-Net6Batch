@@ -74,8 +74,9 @@ namespace POS.Controllers
         }
         public IActionResult AllCategories()
         {
+            ViewBag.SMessage = TempData["SMessage"];
             IList<ItemCategories> oListCat = null;
-            oListCat = db.ItemCategories.OrderBy(m=>m.CatName).ToList();
+            oListCat = db.ItemCategories.Where(m=> m.IsDel == false).OrderBy(m=>m.CatName).ToList();
             return View(oListCat);
         }
         public IActionResult CategoryDetail(int id)
@@ -83,6 +84,35 @@ namespace POS.Controllers
         { 
             ItemCategories objCat = db.ItemCategories.Find(id); 
             return View(objCat);
+        }
+        // update / edit
+        public IActionResult UpdateCategory(int id)
+        {
+            ViewBag.SMessage = TempData["SMessage"];
+            ItemCategories objCat = db.ItemCategories.Find(id);
+            return View(objCat);
+        }
+        [HttpPost]
+        public IActionResult UpdateCategory(ItemCategories objcate)
+        {
+            objcate.ModifiedDate = DateTime.Now;
+            objcate.ModifyBy = "System";
+            db.ItemCategories.Update(objcate);
+            db.SaveChanges();
+            TempData["SMessage"] = "Data Updated Successfully";
+            return RedirectToAction(nameof(ItemsController.UpdateCategory), new {id = objcate.Id });
+        }
+        // delete view
+        public IActionResult DeleteCategory(int id)
+        {
+            ItemCategories objCat = db.ItemCategories.Find(id);
+            objCat.IsDel = true;
+            objCat.ModifiedDate = DateTime.Now;
+            objCat.ModifyBy = "Touba";
+            db.ItemCategories.Update(objCat);
+            db.SaveChanges();
+            TempData["SMessage"] = "Data Deleted Successfully";
+            return RedirectToAction(nameof(ItemsController.AllCategories));
         }
     }
 }
